@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import ContextProvider from './components/ContextProvider';
+import UserProvider from './components/ContextProvider';
 import * as serviceWorker from './serviceWorker';
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -18,7 +18,7 @@ history.listen((location, action) => {
 });
 ReactDOM.render(
     <Router history={history}>
-        <ContextProvider><App /></ContextProvider>
+        <UserProvider><App /></UserProvider>
     </Router>,
     document.getElementById('root'));
 

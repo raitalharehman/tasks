@@ -1,26 +1,44 @@
 import * as React from "react";
-import { Context } from "./context";
+import { UserContext } from "./context";
+import { accessTokenGet, accessTokenSet } from "../../core/accessToken";
+import { homeUrl } from "../App/routes";
+import { history } from "../..";
 
 
-export default class ContextProvider extends React.Component {
+export default class UserProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      update: this.updateGroup,
-      name: "Welcome"
+      update: this.handleUpdate,
+      login: this.login,
+      logout: this.logout,
+      token: accessTokenGet() ? !0 : !1
     };
   }
-  updateGroup = (value) => {
+  handleUpdate = (key, value) => {
     this.setState({
-      name: value
+      [key]: value
+    });
+  }
+  login = (token) => {
+    this.setState({
+      token: token
+    });
+
+    accessTokenSet("temp")
+    history.push(homeUrl);
+  }
+  logout = () => {
+    this.setState({
+      token: null
     });
   }
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <UserContext.Provider value={this.state}>
         {this.props.children}
-      </Context.Provider>
+      </UserContext.Provider>
     );
   }
 }

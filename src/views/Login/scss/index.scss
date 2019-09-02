@@ -1,0 +1,53 @@
+@import "../../../components/App/scss/variables";
+
+.loin-root {
+  background-image: url("../../../assets/img/loginbg.jpg");
+  height: 100vh;
+  .wrapper {
+    background-color: $white;
+    margin-top: 25vh;
+    box-shadow: $shadow;
+    border-radius: $px4;
+    .login-form {
+      text-align: center;
+      padding: 20px;
+      .heading {
+        &-tagline {
+          font-size: 12px;
+        }
+      }
+      input {
+        border: none;
+        display: block;
+        margin: 10px auto;
+        outline: none;
+        border-bottom: 1px solid $blue;
+      }
+      .login-submit {
+        background-color: $blue;
+        color: $white;
+        border-color: $blue;
+        box-shadow: $shadow;
+        border-radius: $px4;
+        outline: none;
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+      .forgotpassword {
+        color: $blue;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+    .ip-root {
+      text-align: center;
+      padding: 20px;
+      .hr-span {
+        font-size: 14px;
+      }
+      .google-login {
+        margin-top: 10px;
+      }
+    }
+  }
+}

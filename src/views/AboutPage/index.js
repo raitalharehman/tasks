@@ -1,1 +1,10 @@
-export { default as AboutPage } from "./View";
+import React from 'react';
+import { About } from '../../components';
+
+function Page() {
+    return (
+        <About />
+    );
+}
+
+export default Page;
