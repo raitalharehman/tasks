@@ -1,0 +1,17 @@
+@import "../../App/scss/variables";
+
+.head-root {
+  height: 60px;
+  nav {
+    background-color: $blueDark;
+    color: $white;
+    a:hover {
+      color: $white;
+    }
+    .dropdown-menu {
+      a:hover {
+        color: inherit;
+      } 
+    }
+  }
+}

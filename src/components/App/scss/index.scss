@@ -10,3 +10,9 @@ a {
 .m-0 {
     margin: 0;
 }
+.m-card {
+  background-color: $white;
+  border: 2px solid #c4c4c4;
+  box-shadow: 0px 4px 4px #c4c4c4;
+  border-radius: 15px;
+}
