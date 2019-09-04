@@ -1,18 +1,24 @@
 @import "./variables";
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    color: $white;
+  color: $white;
 }
 .m-0 {
-    margin: 0;
+  margin: 0;
 }
 .m-card {
   background-color: $white;
-  border: 2px solid #c4c4c4;
-  box-shadow: 0px 4px 4px #c4c4c4;
-  border-radius: 15px;
+  //   border: 2px solid #c4c4c4;
+  //   box-shadow: 0px 4px 4px #c4c4c4;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+.comingsoon {
+  margin-top: 20px;
+  color: $blue;
 }
