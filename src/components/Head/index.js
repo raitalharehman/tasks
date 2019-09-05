@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './scss/index.scss';
 import { companyUrl, paymentUrl } from '../App/routes';
+import { UserContext } from '../ContextProvider/context';
 
 function Head() {
   return (
@@ -34,6 +35,13 @@ function Head() {
                 {/* <Link className="dropdown-item" to="">Something else here</Link> */}
               </div>
             </li>
+            <UserContext.Consumer>
+              {({logout}) => (
+                <li className="nav-item" onClick={() => logout()}>
+                  <div className="nav-link c-p">Logout</div>
+                </li>
+              )}
+            </UserContext.Consumer>
           </ul>
           {/* <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

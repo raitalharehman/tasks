@@ -1,7 +1,7 @@
 import * as React from "react";
 import { UserContext } from "./context";
-import { accessTokenGet, accessTokenSet } from "../../core/accessToken";
-import { homeUrl } from "../App/routes";
+import { accessTokenGet, accessTokenSet, accessTokenDelete } from "../../core/accessToken";
+import { homeUrl, baseUrl } from "../App/routes";
 import { history } from "../..";
 
 
@@ -32,6 +32,9 @@ export default class UserProvider extends React.Component {
     this.setState({
       token: null
     });
+
+    accessTokenDelete()
+    history.push(baseUrl);
   }
 
   render() {
