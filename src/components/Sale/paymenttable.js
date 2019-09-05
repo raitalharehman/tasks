@@ -2,11 +2,11 @@ import React from 'react';
 import MaterialTable from 'material-table';
 import { Paper } from '@material-ui/core';
 
-export default function CompanyTable() {
+export default function SaleTable() {
     const [state, setState] = React.useState({
         columns: [
-            { title: 'Name', field: 'name' },
-            { title: 'Key Person', field: 'keyperson' },
+            { title: 'Project Name', field: 'name' },
+            { title: 'Accont', field: 'account' },
             { title: 'Phone', field: 'phone' },
             {
                 title: 'Status',
@@ -15,16 +15,21 @@ export default function CompanyTable() {
             },
         ],
         data: [
-            { name: 'Toyota', keyperson: 'Ali', phone: '03001234567', status: 0 },
+            {
+                name: 'Toyota',
+                account: 'Ali',
+                phone: '03001234567',
+                status: 0
+            },
             {
                 name: 'Bata',
-                keyperson: 'hassan',
+                account: 'hassan',
                 phone: '03001234567',
                 status: 1,
             },
             {
                 name: 'Outfitter',
-                keyperson: 'Usman',
+                account: 'Usman',
                 phone: '03001234567',
                 status: 2,
             },
@@ -33,7 +38,7 @@ export default function CompanyTable() {
 
     return (
         <MaterialTable
-            title="Companies"
+            title="Payments"
             columns={state.columns}
             data={state.data}
             components={{

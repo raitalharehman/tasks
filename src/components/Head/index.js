@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './scss/index.scss';
-import { companyUrl } from '../App/routes';
+import { companyUrl, paymentUrl } from '../App/routes';
 
 function Head() {
   return (
@@ -14,16 +14,23 @@ function Head() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            {/* <li className="nav-item active">
-              <Link className="nav-link" to="">Home <span className="sr-only">(current)</span></Link>
-            </li> */}
+            <li className="nav-item active">
+              <Link className="nav-link" to={companyUrl}>Company</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={""}>Contact</Link>
+            </li>
             <li className="nav-item dropdown">
               <Link to="" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Company</Link>
+                Sale</Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to={companyUrl}>Company</Link>
-                <Link className="dropdown-item" to="">Contact</Link>
-                {/* <div className="dropdown-divider"></div> */}
+                <Link className="dropdown-item" to="">Projects/Deals</Link>
+                <div className="dropdown-divider"></div>
+                <Link className="dropdown-item" to="">Invoices</Link>
+                <div className="dropdown-divider"></div>
+                <Link className="dropdown-item" to="">Quotes/Proposal</Link>
+                <div className="dropdown-divider"></div>
+                <Link className="dropdown-item" to={paymentUrl}>Payments</Link>
                 {/* <Link className="dropdown-item" to="">Something else here</Link> */}
               </div>
             </li>

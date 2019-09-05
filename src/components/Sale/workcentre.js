@@ -1,9 +1,9 @@
 import React from 'react';
 import './scss/index.scss';
 
-function WorkCentreCompany() {
+function WorkCentreSale() {
   return (
-    <div className="workcenter-company-card m-card">
+    <div className="workcenter-sale-card m-card">
       <h6>Work Centre</h6>
       <h6 className="comingsoon">Coming soon</h6>
 
@@ -11,4 +11,4 @@ function WorkCentreCompany() {
   );
 }
 
-export default WorkCentreCompany;
+export default WorkCentreSale;

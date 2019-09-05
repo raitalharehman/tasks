@@ -6,6 +6,7 @@ import { history } from "../..";
 import { UserContext } from "../ContextProvider/context";
 
 export const baseUrl = "/";
+export const paymentUrl = "/payment";
 export const homeUrl = "/home";
 export const companyUrl = "/company";
 export const aboutUrl = "/about";
@@ -44,6 +45,7 @@ export default function Routes() {
                         }
                         <PrivateRoute exact path={homeUrl} component={LayoutPage} />
                         <PrivateRoute exact path={companyUrl} component={LayoutPage} />
+                        <PrivateRoute exact path={paymentUrl} component={LayoutPage} />
                         <PrivateRoute exact path={aboutUrl} component={AboutPage} />
                         <Route component={NotFound} />
                     </Switch>)}
