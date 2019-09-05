@@ -31,8 +31,7 @@ class LoginPage extends React.Component {
     }
     onSuccessByGoogle(response) {
         console.log(response);
-        this.context.login("temp")
-
+        // this.context.login("temp")
     }
     render() {
         const responseGoogle = (response) => {
