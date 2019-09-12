@@ -9,10 +9,13 @@ export default class DeviceTable extends React.Component {
         this.state = {
             columns: [
                 { title: 'Name', field: 'name' },
-                { title: 'Warranty', field: 'warranty' },
-                { title: 'Expiry', field: 'expiry' },
-                { title: 'Cost', field: 'cost' },
-                { title: 'Image', field: 'image' },
+                { title: 'Warranty', field: 'warranty', type: 'numeric' },
+                { title: 'Expiry', field: 'expiry',type: 'numeric' },
+                { title: 'Cost', field: 'cost',type: 'numeric' },
+                {
+                    title: 'Avatar', field: 'image',
+                    render: rowData => <img src={rowData.image} alt="" style={{ width: 40, borderRadius: '50%' }} />
+                },
             ],
             data: []
         }
