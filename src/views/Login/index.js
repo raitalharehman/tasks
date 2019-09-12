@@ -58,7 +58,7 @@ class LoginPage extends React.Component {
                     <div className="col-md-5">
                         <div className="wrapper">
                             <form className="login-form" onSubmit={this.onSubmit}>
-                                <h5 className="heading">ECRM</h5>
+                                <h5 className="heading">Login</h5>
                                 <div className="heading-tagline">Always a Step Ahead</div>
                                 <h5 className="red-text">{this.state.validation}</h5>
                                 <input type="text" onChange={this.updateName} value={this.state.username} placeholder="Username" required />
