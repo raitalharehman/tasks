@@ -1,14 +1,12 @@
 import React from 'react';
 import './scss/index.scss';
+import VerticalTabs from './tab';
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Home</h1>
-        <div>
-        </div>
-      </header>
+    <div className="App container">
+
+      <VerticalTabs />
     </div>
   );
 }

@@ -11,6 +11,10 @@
     .login-form {
       text-align: center;
       padding: 20px;
+      .red-text {
+        font-size: 12px;
+        color: red;
+      }
       .heading {
         &-tagline {
           font-size: 12px;
