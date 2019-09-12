@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 import { Paper } from '@material-ui/core';
+import { fbdb } from '../../'
 
 export default class DeviceTable extends React.Component {
     constructor(props) {
@@ -13,20 +14,44 @@ export default class DeviceTable extends React.Component {
                 { title: 'Cost', field: 'cost' },
                 { title: 'Image', field: 'image' },
             ],
-            data: [
-                {
-                    name: 'Mobile',
-                    warranty: "1 Year",
-                    expiry: '10 sep 2020',
-                    cost: '100',
-                    image: ""
-                }
-            ],
+            data: []
         }
     }
+    componentDidMount() {
+        fbdb.collection("devices")
+            .get()
+            .then(querySnapshot => {
+                const data = querySnapshot.docs.map(doc => doc.data());
+                let temp = data[0]
+                if (temp) {
+                    const peopleArray = Object.keys(temp).map(i => temp[i])
+                    peopleArray.pop();
+                    this.setState({
+                        data: peopleArray
+                    })
+                }
+            });
+    }
+    addUser = () => {
+        const data = {
+            ...this.state.data,
+            uid: 1568276657001
+        };
+
+        // adding data here
+        fbdb.collection("devices")
+            .doc(data.uid.toString())
+            .set(data)
+            .then(() => {
+                console.log("done")
+            })
+            .catch(error => {
+                console.log(error.message, "Add Device failed")
+                this.setState({ isSubmitting: false });
+            });
+    };
     render() {
-        const {columns, data} = this.state;
-        debugger
+        const { columns, data } = this.state;
         return (
             <MaterialTable
                 title="Devices"
@@ -43,15 +68,17 @@ export default class DeviceTable extends React.Component {
                                 let dataToAdd = this.state.data;
                                 dataToAdd.push(newData);
                                 this.setState({ data, dataToAdd });
+                                this.addUser()
                             }, 600);
                         }),
                     onRowUpdate: (newData, oldData) =>
                         new Promise(resolve => {
                             setTimeout(() => {
                                 resolve();
-                                let dataToEdit = this.state.data;                                
+                                let dataToEdit = this.state.data;
                                 dataToEdit[dataToEdit.indexOf(oldData)] = newData;
                                 this.setState({ data, dataToEdit });
+                                this.addUser()
                             }, 600);
                         }),
                     onRowDelete: oldData =>
@@ -60,7 +87,8 @@ export default class DeviceTable extends React.Component {
                                 resolve();
                                 let dataToDelete = this.state.data;
                                 dataToDelete.splice(dataToDelete.indexOf(oldData), 1);
-                                this.setState({ data, dataToDelete });                                
+                                this.setState({ data, dataToDelete });
+                                this.addUser()
                             }, 600);
                         }),
                 }}

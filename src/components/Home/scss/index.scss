@@ -14,7 +14,13 @@
   font-size: calc(10px + 2vmin);
   color: $white;
 }
-
+a:hover {
+  color: inherit
+}
+button:active,
+button:focus {
+  outline: none;
+}
 .btn {
   padding: 10px 60px;
   margin-top: 20px;
