@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DeviceTable from './devicestable';
 import VerticalTabs from './tabusers';
+import FormControlLabelPosition from './settings';
+import { UserContext } from '../ContextProvider/context';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,29 +68,42 @@ export default function NavTabs() {
     setValue(newValue);
   }
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs
-          variant="fullWidth"
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab label="Devices" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Users" href="/trash" {...a11yProps(1)} />
-          <LinkTab label="Settings" href="/spam" {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        <DeviceTable />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <VerticalTabs />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Page Three
-      </TabPanel>
-    </div>
+  return (<UserContext.Consumer>
+    {
+      ({ settings }) => (
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Tabs
+              variant="fullWidth"
+              value={value}
+              onChange={handleChange}
+              aria-label="nav tabs example"
+            >
+              <LinkTab label="Devices" href="/drafts" {...a11yProps(0)} />
+              <LinkTab label="Settings" href="/spam" {...a11yProps(1)} />
+
+              {
+                settings ?
+                  <LinkTab label="Users" href="/trash" {...a11yProps(2)} />
+                  : null
+              }
+            </Tabs>
+          </AppBar>
+          <TabPanel value={value} index={0}>
+            <DeviceTable />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <FormControlLabelPosition />
+          </TabPanel>
+          {
+            settings ?
+              <TabPanel value={value} index={2}>
+                <VerticalTabs />
+              </TabPanel>
+              : null
+          }
+        </div>)
+    }
+  </UserContext.Consumer>
   );
 }

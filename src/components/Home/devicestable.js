@@ -32,7 +32,7 @@ export default class DeviceTable extends React.Component {
                 }
             });
     }
-    addUser = () => {
+    addData = () => {
         const data = {
             ...this.state.data,
             uid: 1568276657001
@@ -68,7 +68,7 @@ export default class DeviceTable extends React.Component {
                                 let dataToAdd = this.state.data;
                                 dataToAdd.push(newData);
                                 this.setState({ data, dataToAdd });
-                                this.addUser()
+                                this.addData()
                             }, 600);
                         }),
                     onRowUpdate: (newData, oldData) =>
@@ -78,7 +78,7 @@ export default class DeviceTable extends React.Component {
                                 let dataToEdit = this.state.data;
                                 dataToEdit[dataToEdit.indexOf(oldData)] = newData;
                                 this.setState({ data, dataToEdit });
-                                this.addUser()
+                                this.addData()
                             }, 600);
                         }),
                     onRowDelete: oldData =>
@@ -88,7 +88,7 @@ export default class DeviceTable extends React.Component {
                                 let dataToDelete = this.state.data;
                                 dataToDelete.splice(dataToDelete.indexOf(oldData), 1);
                                 this.setState({ data, dataToDelete });
-                                this.addUser()
+                                this.addData()
                             }, 600);
                         }),
                 }}
