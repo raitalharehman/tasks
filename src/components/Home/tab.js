@@ -77,18 +77,18 @@ export default function NavTabs() {
           aria-label="nav tabs example"
         >
           <LinkTab label="Devices" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="Settings" href="/spam" {...a11yProps(1)} />
-          <LinkTab label="Users" href="/trash" {...a11yProps(2)} />
+          <LinkTab label="Users" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="Settings" href="/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <DeviceTable />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <FormControlLabelPosition />
+        <VerticalTabs />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <VerticalTabs />
+        <FormControlLabelPosition />
       </TabPanel>
     </div>
   );
