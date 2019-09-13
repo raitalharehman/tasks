@@ -11,7 +11,7 @@ export default class UserProvider extends React.Component {
       update: this.handleUpdate,
       login: this.login,
       logout: this.logout,
-      settings: false,
+      settings: true,
       updateSettings: this.updateSettings,
       token: accessTokenGet() ? !0 : !1
     };

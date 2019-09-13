@@ -10,10 +10,10 @@ export default class UsersTable extends React.Component {
         }
     }
     render() {
-        const { columns, data } = this.props.state;
+        const { columns, data, totalDevices } = this.props.state;
         let filteredData = null
-        console.log("s",data)
-        this.props.taken ? filteredData = data.filter(x => x.availability && x.availability !== "0" ) : filteredData = data.filter(x => !x.availability || x.availability === "0");
+        this.props.taken ? filteredData = data.filter(x => x.availability && x.availability !== "0" && x.availability <= totalDevices) 
+        : filteredData = data.filter(x => !x.availability || x.availability === "0" || x.availability > totalDevices);
         return (
             <MaterialTable
                 title={this.props.taken ? "Taken Users" : "Available Users"}

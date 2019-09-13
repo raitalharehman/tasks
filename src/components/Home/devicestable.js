@@ -80,7 +80,6 @@ export default class DeviceTable extends React.Component {
                         new Promise(resolve => {
                             setTimeout(() => {
                                 resolve();
-                                console.log(newData)
                                 if (Object.keys(newData).length !== 0) {
                                     let dataToEdit = this.state.data;
                                     dataToEdit[dataToEdit.indexOf(oldData)] = newData;

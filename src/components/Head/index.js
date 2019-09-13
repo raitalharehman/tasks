@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './scss/index.scss';
-import { homeUrl } from '../App/routes';
+import { devicesUrl } from '../App/routes';
 import { UserContext } from '../ContextProvider/context';
 
 function Head() {
@@ -16,7 +16,7 @@ function Head() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link className="nav-link" to={homeUrl}>Home</Link>
+              <Link className="nav-link" to={devicesUrl}>Home</Link>
             </li>
             <UserContext.Consumer>
               {({logout}) => (

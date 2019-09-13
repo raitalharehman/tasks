@@ -91,8 +91,9 @@ class VerticalTabs extends React.Component {
                             {
                                 title: 'Device', field: 'availability',
                                 lookup: result
-                            }
-                        ]
+                            },
+                        ],
+                        totalDevices: peopleArray.length
                     })
                 }
             });
@@ -109,7 +110,6 @@ class VerticalTabs extends React.Component {
                     })
                 }
             });
-        // console.log("refresh")
     }
     addData = () => {
         const data = {
