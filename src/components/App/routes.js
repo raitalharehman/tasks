@@ -9,7 +9,9 @@ export const baseUrl = "/";
 export const paymentUrl = "/payment";
 export const homeUrl = "/home";
 export const companyUrl = "/company";
-export const aboutUrl = "/about";
+export const devicesUrl = "/devices";
+export const settingsUrl = "/settings";
+export const usersUrl = "/users";
 
 function PrivateRoute({ component: Component, ...rest }) {
     return (
@@ -44,6 +46,9 @@ export default function Routes() {
                                 <Route exact path={baseUrl} component={LoginPage} />
                         }
                         <PrivateRoute exact path={homeUrl} component={LayoutPage} />
+                        <PrivateRoute exact path={devicesUrl} component={LayoutPage} />
+                        <PrivateRoute exact path={settingsUrl} component={LayoutPage} />
+                        <PrivateRoute exact path={usersUrl} component={LayoutPage} />
                         <Route component={NotFound} />
                     </Switch>)}
         </UserContext.Consumer>

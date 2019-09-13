@@ -1,13 +1,13 @@
 import React from 'react';
 import './scss/index.scss';
-// import VerticalTabs from './tab';
+import DeviceTable from '../Home/devicestable';
 
-function Home() {
+function Device() {
   return (
     <div className="App container">
-      {/* <VerticalTabs /> */}
+      <DeviceTable />
     </div>
   );
 }
 
-export default Home;
+export default Device;

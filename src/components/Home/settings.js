@@ -15,7 +15,7 @@ export default function FormControlLabelPosition() {
                             <FormControlLabel
                                 value="top"
                                 control={<Switch color="primary" onChange={updateSettings} checked={settings} />}
-                                label="Users Disable"
+                                label="Nav View"
                                 labelPlacement="top"
                             />
                         )

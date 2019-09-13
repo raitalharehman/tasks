@@ -1,13 +1,13 @@
 import React from 'react';
 import './scss/index.scss';
-// import VerticalTabs from './tab';
+import VerticalTabs from '../Home/tabusers';
 
-function Home() {
+function User() {
   return (
     <div className="App container">
-      {/* <VerticalTabs /> */}
+      <VerticalTabs />
     </div>
   );
 }
 
-export default Home;
+export default User;

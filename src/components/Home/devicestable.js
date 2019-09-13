@@ -10,10 +10,10 @@ export default class DeviceTable extends React.Component {
             columns: [
                 { title: 'Name', field: 'name' },
                 { title: 'Warranty', field: 'warranty', type: 'numeric' },
-                { title: 'Expiry', field: 'expiry',type: 'numeric' },
-                { title: 'Cost', field: 'cost',type: 'numeric' },
+                { title: 'Expiry', field: 'expiry', type: 'numeric' },
+                { title: 'Cost', field: 'cost', type: 'numeric' },
                 {
-                    title: 'Avatar', field: 'image',
+                    title: 'Image', field: 'image',
                     render: rowData => <img src={rowData.image} alt="" style={{ width: 40, borderRadius: '50%' }} />
                 },
             ],
@@ -68,20 +68,25 @@ export default class DeviceTable extends React.Component {
                         new Promise(resolve => {
                             setTimeout(() => {
                                 resolve();
-                                let dataToAdd = this.state.data;
-                                dataToAdd.push(newData);
-                                this.setState({ data, dataToAdd });
-                                this.addData()
+                                if (Object.keys(newData).length !== 0) {
+                                    let dataToAdd = this.state.data;
+                                    dataToAdd.push(newData);
+                                    this.setState({ data, dataToAdd });
+                                    this.addData()
+                                }
                             }, 600);
                         }),
                     onRowUpdate: (newData, oldData) =>
                         new Promise(resolve => {
                             setTimeout(() => {
                                 resolve();
-                                let dataToEdit = this.state.data;
-                                dataToEdit[dataToEdit.indexOf(oldData)] = newData;
-                                this.setState({ data, dataToEdit });
-                                this.addData()
+                                console.log(newData)
+                                if (Object.keys(newData).length !== 0) {
+                                    let dataToEdit = this.state.data;
+                                    dataToEdit[dataToEdit.indexOf(oldData)] = newData;
+                                    this.setState({ data, dataToEdit });
+                                    this.addData()
+                                }
                             }, 600);
                         }),
                     onRowDelete: oldData =>
